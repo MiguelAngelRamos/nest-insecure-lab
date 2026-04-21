@@ -11,12 +11,12 @@ export class Usuario {
   @Column({ unique: true })
   email: string;
 
-
+  // Contraseña en texto plano
   @Column()
   password: string;
 
   @Column({ default: 'empleado' })
-  rol: string;
+  rol: string; // Roles: 'admin', 'empleado', 'cliente' (sin validación ni control de acceso)
 
   @Column({ default: true })
   activo: boolean;

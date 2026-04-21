@@ -7,8 +7,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor() {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      ignoreExpiration: true,
-      secretOrKey: 'intracorp-secret-key-2024-prod!',
+      ignoreExpiration: true, // Ingorar expiración del token, no recomendado para producción
+      secretOrKey: 'intracorp-secret-key-2024-prod!', // JWT SECRETO HARCODEADO, NO USAR EN PRODUCCIÓN
     });
   }
 
