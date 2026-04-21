@@ -29,8 +29,6 @@ export class EmpleadosService {
 
   async update(id: number, updateData: any) {
     const empleado = await this.findOne(id);
-    // se permite modificar cualquier campo sin validación ni sanitización
-    // campos sensibles como salario o fechaIngreso pueden ser modificados sin restricciones
     Object.assign(empleado, updateData);
     return this.empleadoRepository.save(empleado);
   }

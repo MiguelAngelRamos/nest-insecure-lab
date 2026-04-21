@@ -7,8 +7,6 @@ import { LoginDto, RegisterDto } from './dto/login.dto.js';
 export class AuthController {
   constructor(private readonly authService: AuthService) { }
 
-  // Sin rate limiting ni protección contra fuerza bruta
-  // TODO: agregar rate limiting @nestjs/throttler
   @Post('login')
   async login(@Body() loginDto: LoginDto) {
     return this.authService.login(loginDto);
@@ -25,7 +23,6 @@ export class AuthController {
     return this.authService.getProfile(req.user.userId);
   }
 
-  // Logout sin invalidar el token (solo a nivel cliente)
   @Post('logout')
   async logout() {
     return { message: 'Sesión cerrada (solo cliente)' };
